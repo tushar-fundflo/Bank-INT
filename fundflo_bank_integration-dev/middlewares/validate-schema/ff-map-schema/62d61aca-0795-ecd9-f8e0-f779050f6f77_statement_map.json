@@ -1,0 +1,9 @@
+{ 
+    "transactionDate":"TxnDate",
+    "transactionEntryDate":"ValueDate",
+    "transactionAmount":"CrAmt",
+    "collectionBankAccountNumber":"VanNo",
+    "transactionRef":"UniqRefNo",
+    "utrNumber":"UniqRefNo",
+    "transDetails":"TxnDescr"  
+  }
