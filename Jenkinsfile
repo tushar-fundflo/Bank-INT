@@ -3,8 +3,8 @@ pipeline{
     parameters{
         choice(name:'AWS_ENV', choices:['QA'],description:'From which environment do you want to deploy?')
         choice(name:'AWS_REGION', choices:['ap-south-1'],description:'From which region do you want to deploy?')
-        choice(name:'EB_APP_NAME', choices:['BANK_INTEGRATIONS'],description:'In which elasticbeanstalk application do you want to deploy?')
-        choice(name:'EB_ENV_NAME', choices:['BANKINTEGRATIONS'],description:'In which elasticbeanstalk enviornment do you want to deploy?')
+        choice(name:'EB_APP_NAME', choices:['BANK_INTEGRATION'],description:'In which elasticbeanstalk application do you want to deploy?')
+        choice(name:'EB_ENV_NAME', choices:['BANKINTEGRATION'],description:'In which elasticbeanstalk enviornment do you want to deploy?')
     }
     stages{
         stage('Resources Check or Create'){
@@ -117,7 +117,6 @@ pipeline{
                         --source-bundle S3Bucket=elasticbeanstalk-${params.AWS_REGION}-${accountNumber},S3Key=version-${BUILD_NUMBER}.war \
                         --region ${params.AWS_REGION}"""
                         sh "aws elasticbeanstalk update-environment --environment-name \"${params.EB_ENV_NAME}\" --version-label \"version-${BUILD_NUMBER}\" --region ${params.AWS_REGION}"
-                        sh "rm version-${BUILD_NUMBER}.war"
                     } 
                 }
             }
