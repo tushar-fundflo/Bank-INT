@@ -117,6 +117,7 @@ pipeline{
                         --source-bundle S3Bucket=elasticbeanstalk-${params.AWS_REGION}-${accountNumber},S3Key=version-${BUILD_NUMBER}.war \
                         --region ${params.AWS_REGION}"""
                         sh "aws elasticbeanstalk update-environment --environment-name \"${params.EB_ENV_NAME}\" --version-label \"version-${BUILD_NUMBER}\" --region ${params.AWS_REGION}"
+                        sh "rm version-${BUILD_NUMBER}.war"
                     } 
                 }
             }
