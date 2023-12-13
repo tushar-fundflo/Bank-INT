@@ -60,4 +60,9 @@ resource "aws_elastic_beanstalk_environment" "eb_env" {
     name      = "HealthCheckPath"
     value     = "/"
   }
+  setting {
+    namespace = "aws:elasticbeanstalk:application:environment"
+    name      = "NODE_ENV"
+    value     = var.NODE_ENV
+  }
 }
