@@ -38,3 +38,9 @@ variable "eb_environment_autoscaling_maxcount" {
     description = "ElasticBeanstalk Enviornment"
     default = "1"
 }
+variable "NODE_ENV" {
+    type = string
+    description = "ElasticBeanstalk Environment properties"
+    default = ""
+  
+}
